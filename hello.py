@@ -49,6 +49,11 @@ def index():
     return render_template('index.html', **locals())
 
 
+@app.route('/test_static')
+def test_static():
+    return render_template('test_staic.html')
+
+
 # URL, 反向路由url_for, func
 app.add_url_rule('/hello', 'hello_world', hello_world)
 
