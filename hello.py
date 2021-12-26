@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for, request, render_template
+from flask.helpers import make_response
 
 app = Flask(__name__)
 
@@ -64,6 +65,27 @@ def result():
     if request.method == 'POST':
         result = request.form
         return render_template("result.html", **locals())
+
+
+# cookie 操作
+@app.route('/set_cookies')
+def set_cookie():
+    resp = make_response('success')  #设置响应体
+    resp.set_cookie('alin', 'alin', max_age=3600)
+    return resp
+
+
+@app.route('/get_cookies')
+def get_cookie():
+    cookie_1 = request.cookies.get('alin')
+    return cookie_1
+
+
+@app.route('/del_cookies')
+def del_cookie():
+    resp = make_response('del cookies')
+    resp.delete_cookie('alin')
+    return resp
 
 
 # URL, 反向路由url_for, func
