@@ -54,6 +54,18 @@ def test_static():
     return render_template('test_staic.html')
 
 
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html", **locals())
+
+
 # URL, 反向路由url_for, func
 app.add_url_rule('/hello', 'hello_world', hello_world)
 
