@@ -10,9 +10,10 @@
 
     <body>
         {% for message in form.name.errors %}
-        <div>{{ message }}</div>
+            <div>{{ message }}</div>
         {% endfor %}
-        <form action="/contact" method=post>
+        
+        <form action="/contact" method="post">
             <fieldset>
                 <legend>Contact Form</legend>
                 {{ form.hidden_tag }}
@@ -22,7 +23,8 @@
                     {{ form.name }}
                     <br>
 
-                    {{ form.gender.label }} {{ form.gender }}
+                    {{ form.gender.label }}
+                    {{ form.gender }}
                     {{ form.address.label }}<br>
                     {{ form.address }}
                     <br>

@@ -1,5 +1,15 @@
 {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 200,
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+    // settings.json
+    "unibeautify.defaultConfig": "Flask/.unibeautifyrc.yml",
+    "unibeautify.enabled": true,
+    "[jinja-html]": {
+        "editor.defaultFormatter": "Glavin001.unibeautify-vscode",
+        "editor.formatOnSave": true
+    },
+    "files.associations": {
+        "*.html": "jinja-html"
+    }
 }

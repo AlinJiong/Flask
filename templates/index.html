@@ -9,9 +9,9 @@
     <body>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
         {% endif %}
         {% endwith %}
         <h3>Welcome!</h3>
