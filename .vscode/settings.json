@@ -2,6 +2,15 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 200,
     "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": [
+        "--style={column_limit=128}"
+    ],
+    // "python.linting.flake8Enabled": true,
+    // "python.linting.flake8Args": [
+    //     "--max-line-length=128",
+    //     "--ignore=W191, E266, W504"
+    // ],
+    "python.linting.pylintEnabled": false,
     // settings.json
     "unibeautify.defaultConfig": "Flask/.unibeautifyrc.yml",
     "unibeautify.enabled": true,

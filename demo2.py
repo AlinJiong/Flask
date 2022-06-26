@@ -1,4 +1,3 @@
-from os import error
 from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
@@ -15,8 +14,7 @@ def login():
     error = None
 
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form[
-                'password'] != 'admin':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = 'Invalid username or password'
         else:
             flash('You were successfully logged in')

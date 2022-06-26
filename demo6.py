@@ -10,8 +10,7 @@ DATABASE = 'test'
 USERNAME = 'test'
 PASSWORD = 'mysql824.'
 
-DA_URI = 'mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(
-    USERNAME, PASSWORD, HOST, PORT, DATABASE)
+DA_URI = 'mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(USERNAME, PASSWORD, HOST, PORT, DATABASE)
 
 # 指定使用的数据库
 app.config['SQLALCHEMY_DATABASE_URI'] = DA_URI
@@ -24,19 +23,17 @@ db = SQLAlchemy(app)
 
 class Article(db.Model):
     __tablename__ = 'article'
-    id = db.Column(db.Integer , primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(200), nullable=False)
     content = db.Column(db.Text, nullable=False)
 
 
-db.create_all()
-
 @app.route("/article")
 def article_view():
     # 1、添加数据
-    # article = Article(title="1", content='ok')
-    # db.session.add(article)
-    # db.session.commit()
+    article = Article(title="1", content='ok')
+    db.session.add(article)
+    db.session.commit()
 
     # 2.查询数据
     # article = Article.query.filter_by(id=1)[0]
@@ -48,8 +45,8 @@ def article_view():
     # db.session.commit()
 
     # 4、删除数据
-    Article.query.filter_by(id=1).delete()
-    db.session.commit()
+    # Article.query.filter_by(id=1).delete()
+    # db.session.commit()
     return "success"
 
 
@@ -64,4 +61,5 @@ def test():
 
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)

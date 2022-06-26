@@ -8,16 +8,14 @@ app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USERNAME'] = 'from@qq.com'
-app.config['MAIL_PASSWORD'] = '**************'
+app.config['MAIL_PASSWORD'] = '**********************'
 
 mail = Mail(app)
 
 
-@app.route('/')
+@app.route('/send/msg/')
 def index():
-    msg = Message('hello',
-                  sender='from@qq.com',
-                  recipients=['to@qq.com'])
+    msg = Message('hello', sender='from@qq.com', recipients=['receive@qq.com'])
     msg.body = "send by flask"
     mail.send(msg)
     return "send success"

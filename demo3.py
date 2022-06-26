@@ -1,4 +1,5 @@
 import os
+import uuid
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 
@@ -14,9 +15,9 @@ def upload():
     else:
         f = request.files['file']
         print(request.files)
-        f.save(
-            os.path.join(app.config['UPLOAD_FOLDER'],
-                         secure_filename(f.filename)))
+        filename = uuid.uuid4().hex + '.' + f.filename.split('.')[-1]
+        print(filename)
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename)))
 
         return '文件上传成功！'
 
